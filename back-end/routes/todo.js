@@ -3,8 +3,8 @@ const router = express.Router();
 
 const {
     getAllTodo,
-    postCreateTodo,
-    putUpdateTodo,
+    createTodo,
+    updateTodo,
     deleteTodo,
 } = require("../controllers/todo");
 
@@ -20,14 +20,14 @@ router.get("/", getAllTodo);
  * @description add a new todo
  * @access public
  */
-router.post("/", postCreateTodo);
+router.post("/", createTodo);
 
 /**
  * @route PUT api/todo/:id
  * @description update todo
  * @access public
  */
- router.put("/:id", putUpdateTodo);
+ router.put("/:id", updateTodo);
 
 /**
  * @route DELETE api/todo/:id

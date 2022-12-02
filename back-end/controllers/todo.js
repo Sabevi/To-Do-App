@@ -9,7 +9,7 @@ exports.getAllTodo = (req, res) => {
         );
 };
 
-exports.postCreateTodo = (req, res) => {
+exports.createTodo = (req, res) => {
     Todo.create(req.body)
         .then((data) => 
             res.status(201).json({ message: "Todo added successfully", data }))
@@ -18,7 +18,7 @@ exports.postCreateTodo = (req, res) => {
         );
 };
 
-exports.putUpdateTodo = (req, res) => {
+exports.updateTodo = (req, res) => {
     Todo.findByIdAndUpdate(req.params.id, req.body)
         .then((data) => res.json({ message: "updated successfully", data }))
         .catch((err) =>
