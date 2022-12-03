@@ -10,10 +10,14 @@
   padding-top: 100px;
   max-width: 900px;
   margin: 0 auto;
-  text-align: center;
   justify-content: center;
   min-height: 100%;
   width: 100%;
+}
+
+.add-to-do{
+  border: 2px solid red;
+  margin-bottom: 20px;
 }
 
 table {
