@@ -1,4 +1,7 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+
 import "./ToDoList.css";
 
 const ToDoList = ({ taskList, toggleCompletedTask, removeTask }) => {
@@ -20,7 +23,9 @@ const ToDoList = ({ taskList, toggleCompletedTask, removeTask }) => {
               />
                 {task.task}
               </label>
-              <button onClick={() => removeTask(index)}>Delete</button>
+              <button className="delete-task" onClick={() => removeTask(index)}>
+                <FontAwesomeIcon icon={faTrashCan} />
+              </button>
             </td>
           </tr>
         ))}

@@ -10,8 +10,10 @@ tr {
   height: 50px;
 }
 
-button {
+.delete-task {
   cursor: pointer;
+  background-color: transparent;
+  border: none;
 }
 
 .task-undelined{

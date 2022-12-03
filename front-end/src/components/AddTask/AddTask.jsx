@@ -1,4 +1,6 @@
 import React  from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./AddTask.css";
 
 const AddTask = ({ addTask, setTask }) => {
@@ -11,7 +13,11 @@ const AddTask = ({ addTask, setTask }) => {
         placeholder="Write new task..."
         onChange={e => setTask(e.target.value)}
       />
-      <button onClick={() => addTask( )}>Add</button>
+      <button onClick={() => addTask( )}>
+        <FontAwesomeIcon icon={faPlus} />
+        {" "}
+        Add
+      </button>
     </div>
   );
 };
