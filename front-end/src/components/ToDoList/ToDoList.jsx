@@ -37,7 +37,7 @@ const ToDoList = ({ taskList, toggleCompletedTask, removeTask }) => {
 ToDoList.propTypes = {
   taskList: PropTypes.arrayOf((PropTypes.shape({
     task: PropTypes.string.isRequired,
-    done: PropTypes.bool.isRequired
+    done: PropTypes.bool.isRequired,
   }))).isRequired,
   toggleCompletedTask: PropTypes.func.isRequired,
   removeTask: PropTypes.func.isRequired

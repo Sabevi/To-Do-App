@@ -1,12 +1,12 @@
 table {
   border-collapse: collapse;
-  border-top: 1px solid #DDDDDD;
+  border-top: 1px solid #dddddd;
   width: 900px;
   margin-top: 20px;
 }
 
 tr {
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 1px solid #dddddd;
   height: 50px;
 }
 
@@ -23,10 +23,10 @@ button {
   border: none;
 }
 
-.task-undelined{
+.task-undelined {
   text-decoration: line-through;
 }
 
-input[type="checkbox"]{
+input[type="checkbox"] {
   margin-right: 10px;
 }

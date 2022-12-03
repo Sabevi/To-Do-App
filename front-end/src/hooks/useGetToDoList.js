@@ -7,16 +7,18 @@ const useGetToDoList = () => {
   const [data, setData] = useState([]);
   const [refresh, count] = useRefresh();
 
-  useEffect(() =>{
+  useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
 
-       try {
-        const { data: response } = await axios.get("http://localhost:8000/api/todo/",
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true
-        });
+      try {
+        const { data: response } = await axios.get(
+          "http://localhost:8000/api/todo/",
+          {
+            headers: { "Content-Type": "application/json" },
+            withCredentials: true,
+          }
+        );
         setData(response);
         //a garder
         //console.log(response);

@@ -3,10 +3,11 @@ import "./SelectTask.css";
 //import PropTypes from "prop-types";
 
 const SelectTask = () => {
-  
-  return(
+  return (
     <div className="select select-task-container">
-      <label htmlFor="select-task" className="select-label">Display : </label>
+      <label htmlFor="select-task" className="select-label">
+        Display :{" "}
+      </label>
       <select id="select-task">
         <option value="all">All</option>
         <option value="only todo">Only Todo</option>

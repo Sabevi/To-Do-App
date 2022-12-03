@@ -5,7 +5,7 @@ import ToDo from "./pages/ToDo/ToDo";
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<ToDo/>} />
+      <Route path="/" element={<ToDo />} />
     </Routes>
   );
 }
