@@ -1,25 +1,41 @@
 import "./ToDoList.css";
+import "../../hooks/useGetToDoList";
+//import useGetToDoList from "../../hooks/useGetToDoList";
 
 const ToDoList = () => {
-  return(
-    <main className="todo">
-      <section className="todo-section">
-        <table>
-          <tbody>
-              <tr>
-                <td><label><input type="checkbox" />Faire la vaisselle</label></td>
-              </tr>
-              <tr>
-                <td><label><input type="checkbox" />Faire la vaisselle</label></td>
-              </tr>
-              <tr>
-                <td><label><input type="checkbox" />Faire la vaisselle</label></td>
-              </tr>
-          </tbody>
-        </table>
-      </section>
-    </main>
+  //const { loading, data, refresh } = useGetToDoList;
 
+  const todoData = [
+    {
+        "task": "cuisine à faire",
+        "done": false,
+    },
+    {
+        "task": "courses à faire",
+        "done": false,
+    },
+    {
+      "task": "sport à faire",
+      "done": false,
+  }
+  ];
+  
+  return(
+    <>
+        <main className="todo">
+          <section className="todo-section">
+            <table>
+              <tbody>
+                {todoData.map((element,index) =>(
+                  <tr key={index}>
+                    <td><label><input type="checkbox" />{element.task}</label></td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </section>
+        </main>
+    </>
   );
 };
 
