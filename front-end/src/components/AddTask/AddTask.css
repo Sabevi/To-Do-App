@@ -1,8 +1,13 @@
 .add-task{
-  border: 2px solid red;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 
-button {
+.add-task-button {
   cursor: pointer;
+  border-radius: 5px;
+  background-color: #26ADE4;
+  border: none;
+  min-width: 85px;
 }

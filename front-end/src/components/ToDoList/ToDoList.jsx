@@ -23,7 +23,7 @@ const ToDoList = ({ taskList, toggleCompletedTask, removeTask }) => {
               />
                 {task.task}
               </label>
-              <button className="delete-task" onClick={() => removeTask(index)}>
+              <button className="delete-task"onClick={() => removeTask(index)}>
                 <FontAwesomeIcon icon={faTrashCan} />
               </button>
             </td>

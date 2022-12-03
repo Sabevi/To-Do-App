@@ -4,8 +4,8 @@ import "./SelectTask.css";
 const SelectTask = () => {
   
   return(
-    <div className="select-task">
-      <label htmlFor="select-task">Display : </label>
+    <div className="select select-task-container">
+      <label htmlFor="select-task" className="select-label">Display : </label>
       <select id="select-task">
         <option value="all">All</option>
         <option value="only todo">Only Todo</option>

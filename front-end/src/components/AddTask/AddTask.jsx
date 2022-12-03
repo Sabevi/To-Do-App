@@ -8,12 +8,13 @@ const AddTask = ({ addTask, setTask }) => {
   return(
     <div className="add-task">
       <input
+        className="input"
         id="add-task"
         type="text"
         placeholder="Write new task..."
         onChange={e => setTask(e.target.value)}
       />
-      <button onClick={() => addTask( )}>
+      <button className="add-task-button" onClick={() => addTask( )}>
         <FontAwesomeIcon icon={faPlus} />
         {" "}
         Add
