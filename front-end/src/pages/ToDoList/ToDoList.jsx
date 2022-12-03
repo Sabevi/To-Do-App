@@ -4,7 +4,6 @@ import "../../hooks/useGetToDoList";
 //import useGetToDoList from "../../hooks/useGetToDoList";
 
 const ToDoList = () => {
-  const [task, setTask] = useState("");
   const [taskList, setTaskList] = useState([
     {
         "task": "cuisine à faire",
@@ -19,7 +18,7 @@ const ToDoList = () => {
       "done": false,
     }
   ]);
-  console.log(taskList);
+  const [task, setTask] = useState("");
 
   const addTask = () => {
     if (task.length) {
@@ -33,6 +32,14 @@ const ToDoList = () => {
     newTaskList.splice(index, 1);
     setTaskList(newTaskList);
   };
+
+  const toggleCompletedTask = index => {
+    const newTaskList = [...taskList];
+    newTaskList[index].done = !newTaskList[index].done;
+    setTaskList(newTaskList);
+  };
+
+  // console.log(taskList);
   
   return(
     <>
@@ -50,16 +57,33 @@ const ToDoList = () => {
               <button onClick={() => addTask( )}>Add</button>
             </div>
 
+
+            {/* Filter */}
+            {/*AJouter label ? */}
+            <div className="todo-select">
+              <p>Display : </p>
+              <select>
+                <option value="all">All</option>
+                <option value="only todo">Only Todo</option>
+                <option value="only done">Only done</option>
+              </select>
+            </div>
+
             {/*table*/}
             <table>
               <tbody>
-                {taskList.map((element,index) =>(
+                {taskList.map((task,index) =>(
                   <tr key={index}>
                     <td>
-                      <label>
-                        <input type="checkbox" />{element.task}
+                      <label htmlFor={`task ${index + 1}`} className={task.done ? "task-undelined" : ""}>
+                        <input 
+                          id={`task ${index + 1}`}
+                          type="checkbox"
+                          onChange={() => toggleCompletedTask(index)}
+                        />
+                          {task.task}
                       </label>
-                      <button onClick={e => removeTask(index)}>Delete</button>
+                      <button onClick={() => removeTask(index)}>Delete</button>
                     </td>
                   </tr>
                 ))}
