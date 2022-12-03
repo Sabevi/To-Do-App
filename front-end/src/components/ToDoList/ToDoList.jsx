@@ -4,12 +4,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import "./ToDoList.css";
 
-const ToDoList = ({ taskList, toggleCompletedTask, removeTask }) => {
+const ToDoList = ({ toggleCompletedTask, removeTask, data }) => {
   
   return(
     <table>
       <tbody>
-        {taskList.map((task,index) =>(
+        {data.map((task,index) =>(
           <tr key={index}>
             <td>
               <label 
@@ -35,7 +35,7 @@ const ToDoList = ({ taskList, toggleCompletedTask, removeTask }) => {
 };
 
 ToDoList.propTypes = {
-  taskList: PropTypes.arrayOf((PropTypes.shape({
+  data: PropTypes.arrayOf((PropTypes.shape({
     task: PropTypes.string.isRequired,
     done: PropTypes.bool.isRequired,
   }))).isRequired,

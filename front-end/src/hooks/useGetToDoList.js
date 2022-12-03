@@ -20,8 +20,7 @@ const useGetToDoList = () => {
           }
         );
         setData(response);
-        //a garder
-        //console.log(response);
+
       } catch (error) {
         console.error(error.message);
       }
@@ -29,6 +28,7 @@ const useGetToDoList = () => {
     };
     fetchData();
   }, [count]);
+  
   return { loading, data, refresh };
 };
 

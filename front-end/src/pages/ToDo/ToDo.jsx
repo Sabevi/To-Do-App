@@ -3,23 +3,11 @@ import AddTask from "../../components/AddTask/AddTask";
 import SelectTask from "../../components/SelectTask/SelectTask";
 import ToDoList from "../../components/ToDoList/ToDoList";
 import "./ToDo.css";
-//import useGetToDoList from "../../hooks/useGetToDoList";
+import useGetToDoList from "../../hooks/useGetToDoList";
 
 const ToDo = () => {
-  const [taskList, setTaskList] = useState([
-    {
-        "task": "cuisine à faire",
-        "done": false,
-    },
-    {
-        "task": "courses à faire",
-        "done": false,
-    },
-    {
-      "task": "sport à faire",
-      "done": false,
-    }
-  ]);
+  const { loading, data, refresh } = useGetToDoList();
+  const [taskList, setTaskList] = useState(data);
   const [task, setTask] = useState("");
 
   const addTask = () => {
@@ -40,6 +28,10 @@ const ToDo = () => {
     newTaskList[index].done = !newTaskList[index].done;
     setTaskList(newTaskList);
   };
+
+  if(loading) {
+    return <p>Loading</p>
+  }
   
   return(
     <>
@@ -50,10 +42,10 @@ const ToDo = () => {
             setTask={setTask}
           />
           <SelectTask />
-          <ToDoList 
-            taskList={taskList} 
+          <ToDoList
             toggleCompletedTask={toggleCompletedTask} 
             removeTask={removeTask}
+            data={data}
           />
         </section>
       </main>
