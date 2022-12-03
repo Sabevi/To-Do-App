@@ -1,6 +1,25 @@
+import "./ToDoList.css";
+
 const ToDoList = () => {
   return(
-    <h1>To Do List</h1>
+    <main className="todo">
+      <section className="todo-section">
+        <table>
+          <tbody>
+              <tr>
+                <td><label><input type="checkbox" />Faire la vaisselle</label></td>
+              </tr>
+              <tr>
+                <td><label><input type="checkbox" />Faire la vaisselle</label></td>
+              </tr>
+              <tr>
+                <td><label><input type="checkbox" />Faire la vaisselle</label></td>
+              </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
   );
 };
 

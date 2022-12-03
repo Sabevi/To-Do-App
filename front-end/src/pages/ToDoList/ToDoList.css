@@ -1,0 +1,29 @@
+.todo {
+  width: 100%;
+  position: absolute;
+  min-height: 1000px;
+  height: 100%;
+  background-color: white;
+}
+
+.todo-section {
+  padding-top: 100px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  justify-content: center;
+  min-height: 100%;
+  width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border-top: 1pt solid black;
+  width: 500px;
+  text-align: left;
+}
+
+tr {
+  border-bottom: 1pt solid black;
+  height: 30px;
+}
