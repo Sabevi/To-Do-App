@@ -1,7 +1,7 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
-
 import "./ToDoList.css";
 
 const ToDoList = ({ taskList, toggleCompletedTask, removeTask }) => {
@@ -32,6 +32,15 @@ const ToDoList = ({ taskList, toggleCompletedTask, removeTask }) => {
       </tbody>
     </table>
   );
+};
+
+ToDoList.propTypes = {
+  taskList: PropTypes.arrayOf((PropTypes.shape({
+    task: PropTypes.string.isRequired,
+    done: PropTypes.bool.isRequired
+  }))).isRequired,
+  toggleCompletedTask: PropTypes.func.isRequired,
+  removeTask: PropTypes.func.isRequired
 };
 
 export default ToDoList;
