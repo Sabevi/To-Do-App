@@ -15,26 +15,20 @@
   width: 100%;
 }
 
-.add-to-do{
-  border: 2px solid red;
-  margin-bottom: 20px;
-}
-
-.todo-select {
-  display:flex;
-  justify-content: flex-end;
-};
-
 table {
   border-collapse: collapse;
-  border-top: 3px solid black;
+  border-top: 1px solid black;
   width: 500px;
   text-align: left;
 }
 
 tr {
-  border: 3px solid black;
+  border-bottom: 1px solid black;
   height: 50px;
+}
+
+button {
+  cursor: pointer;
 }
 
 .task-undelined{

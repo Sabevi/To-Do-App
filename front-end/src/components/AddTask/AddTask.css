@@ -1,0 +1,8 @@
+.add-task{
+  border: 2px solid red;
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+}
