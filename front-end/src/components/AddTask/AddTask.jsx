@@ -15,7 +15,8 @@ const AddTask = ({ addTask, setTask }) => {
         onChange={(e) => setTask(e.target.value)}
       />
       <button className="add-task-button" onClick={() => addTask()}>
-        <FontAwesomeIcon icon={faPlus} /> Add
+        <FontAwesomeIcon icon={faPlus} />
+        Add
       </button>
     </div>
   );
