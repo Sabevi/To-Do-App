@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AddTask from "../../components/AddTask/AddTask";
 import SelectTask from "../../components/SelectTask/SelectTask";
 import ToDoList from "../../components/ToDoList/ToDoList";
@@ -10,11 +10,30 @@ import "./ToDo.css";
 
 const ToDo = () => {
   const { loading, data, refresh } = useGetToDoList();
+  const [taskList, setTaskList] = useState([]);
   const { sendTask } = useSendTask();
   const { deleteTask } = useDeleteTask();
   const { modifyTask } = useModifyTask();
   const [task, setTask] = useState("");
-  console.log(data);
+  const [selectedTask, setSelectedTask] = useState("");
+
+  useEffect(() => {
+    setTaskList(data);
+  }, [data]);
+
+  useEffect(() => {
+    if (selectedTask === "only todo") {
+      setTaskList(data);
+      const newTaskList = taskList.filter((element) => !element.done);
+      setTaskList(newTaskList);
+    } else if (selectedTask === "only done") {
+      setTaskList(data);
+      const newTaskList = taskList.filter((element) => element.done);
+      setTaskList(newTaskList);
+    } else if (selectedTask === "all") {
+      setTaskList(data);
+    }
+  }, [selectedTask]);
 
   const addTask = async () => {
     if (task.length) {
@@ -39,23 +58,23 @@ const ToDo = () => {
     refresh();
   };
 
-  if (loading) {
-    return <p>Loading</p>;
-  }
-
   return (
     <>
-      <main className="todo">
-        <section className="todo-section">
-          <AddTask addTask={addTask} setTask={setTask} />
-          <SelectTask />
-          <ToDoList
-            toggleCompletedTask={toggleCompletedTask}
-            removeTask={removeTask}
-            data={data}
-          />
-        </section>
-      </main>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <main className="todo">
+          <section className="todo-section">
+            <AddTask addTask={addTask} setTask={setTask} />
+            <SelectTask setSelectedTask={setSelectedTask} />
+            <ToDoList
+              toggleCompletedTask={toggleCompletedTask}
+              removeTask={removeTask}
+              taskList={taskList}
+            />
+          </section>
+        </main>
+      )}
     </>
   );
 };

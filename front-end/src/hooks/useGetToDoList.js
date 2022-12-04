@@ -13,7 +13,7 @@ const useGetToDoList = () => {
 
       try {
         const { data: response } = await axios.get(
-          "http://localhost:8000/api/todo/",
+          `${process.env.REACT_APP_API_URL}/api/todo`,
           {
             headers: { "Content-Type": "application/json" },
             withCredentials: true,

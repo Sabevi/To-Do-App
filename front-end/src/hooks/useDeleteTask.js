@@ -5,7 +5,7 @@ const useDeleteTask = () => {
   const deleteTask = async (id) => {
     try {
       await axios.delete(
-        `http://localhost:8000/api/todo/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/todo/${id}`,
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,

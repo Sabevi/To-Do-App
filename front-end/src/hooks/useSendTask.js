@@ -4,8 +4,8 @@ const useSendTask = () => {
 
   const sendTask = async (data) => {
     try {
-      await axios.post(
-        "http://localhost:8000/api/todo",
+      await axios.post( 
+       `${process.env.REACT_APP_API_URL}/api/todo`,
         JSON.stringify({
           task: data.task,
           done: data.done

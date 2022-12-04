@@ -30,3 +30,7 @@ button {
 input[type="checkbox"] {
   margin-right: 10px;
 }
+
+.delete-task-icon {
+  color: red;
+}
