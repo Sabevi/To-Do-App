@@ -6,6 +6,7 @@ import useGetToDoList from "../../hooks/useGetToDoList";
 import useSendTask from "../../hooks/useSendTask";
 import useDeleteTask from "../../hooks/useDeleteTask";
 import useModifyTask from "../../hooks/useModifyTask";
+import Loading from "../../assets/Loading";
 import "./ToDo.css";
 
 const ToDo = () => {
@@ -15,25 +16,25 @@ const ToDo = () => {
   const { deleteTask } = useDeleteTask();
   const { modifyTask } = useModifyTask();
   const [task, setTask] = useState("");
-  const [selectedTask, setSelectedTask] = useState("");
+  const [selectCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     setTaskList(data);
   }, [data]);
 
+  console.log(taskList);
+
   useEffect(() => {
-    if (selectedTask === "only todo") {
-      setTaskList(data);
+    if (selectCategory === "only todo") {
       const newTaskList = taskList.filter((element) => !element.done);
       setTaskList(newTaskList);
-    } else if (selectedTask === "only done") {
-      setTaskList(data);
+    } else if (selectCategory === "only done") {
       const newTaskList = taskList.filter((element) => element.done);
       setTaskList(newTaskList);
-    } else if (selectedTask === "all") {
+    } else if (selectCategory === "all") {
       setTaskList(data);
     }
-  }, [selectedTask]);
+  }, [selectCategory]);
 
   const addTask = async () => {
     if (task.length) {
@@ -61,12 +62,12 @@ const ToDo = () => {
   return (
     <>
       {loading ? (
-        <p>Loading...</p>
+        <Loading />
       ) : (
         <main className="todo">
           <section className="todo-section">
             <AddTask addTask={addTask} setTask={setTask} />
-            <SelectTask setSelectedTask={setSelectedTask} />
+            <SelectTask setSelectedCategory={setSelectedCategory} />
             <ToDoList
               toggleCompletedTask={toggleCompletedTask}
               removeTask={removeTask}

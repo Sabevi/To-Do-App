@@ -7,12 +7,13 @@ table {
 
 tr {
   border-bottom: 1px solid #dddddd;
-  height: 60px;
+  
 }
 
 td {
   display: flex;
   justify-content: space-between;
+  padding: 15px;
 }
 
 .delete-item-button {
@@ -28,6 +29,11 @@ td {
 
 .task-undelined {
   text-decoration: line-through;
+}
+
+.input-checkbox-container {
+  display: flex;
+  align-items: center;
 }
 
 input[type="checkbox"] {
