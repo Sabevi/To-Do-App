@@ -2,25 +2,28 @@ table {
   border-collapse: collapse;
   border-top: 1px solid #dddddd;
   width: 100%;
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 tr {
   border-bottom: 1px solid #dddddd;
-  height: 50px;
+  height: 60px;
 }
 
 td {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
 }
 
-button {
+.delete-item-button {
   cursor: pointer;
-  background-color: transparent;
   border: none;
+  border-radius: 5px;
+  background-color: #E4264E;
+  color: #FFFFFF;
+  border: none;
+  padding: 6px;
+  font-size: 16px;
 }
 
 .task-undelined {
@@ -29,8 +32,4 @@ button {
 
 input[type="checkbox"] {
   margin-right: 10px;
-}
-
-.delete-task-icon {
-  color: red;
 }

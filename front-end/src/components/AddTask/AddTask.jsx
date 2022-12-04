@@ -6,16 +6,18 @@ import "./AddTask.css";
 
 const AddTask = ({ addTask, setTask }) => {
   return (
-    <div className="add-task">
+    <div className="add-task-container">
+      <label htmlFor="add-task" className="sr-only">Add a new task</label>
       <input
         className="input"
         id="add-task"
         type="text"
-        placeholder="Write new task..."
+        placeholder="Write new task ..."
         onChange={(e) => setTask(e.target.value)}
       />
       <button className="add-task-button" onClick={() => addTask()}>
         <FontAwesomeIcon icon={faPlus} />
+        {" "}
         Add
       </button>
     </div>

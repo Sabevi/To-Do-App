@@ -1,7 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import "./ToDoList.css";
 
 const ToDoList = ({ toggleCompletedTask, removeTask, taskList }) => {
@@ -14,7 +12,7 @@ const ToDoList = ({ toggleCompletedTask, removeTask, taskList }) => {
             <td>
               <label 
                 htmlFor={`task ${index + 1}`} 
-                className={task.done ? "task-undelined" : ""}
+                className={task.done && "task-undelined"}
               >
               <input 
                 id={`task ${index + 1}`}
@@ -23,8 +21,8 @@ const ToDoList = ({ toggleCompletedTask, removeTask, taskList }) => {
               />
                 {task.task}
               </label>
-              <button onClick={() => removeTask(index)}>
-                <FontAwesomeIcon icon={faTrashCan} className="delete-task-icon"/>
+              <button className="delete-item-button" onClick={() => removeTask(index)}>
+                Delete
               </button>
             </td>
           </tr>

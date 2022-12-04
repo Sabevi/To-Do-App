@@ -1,6 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
 import "./SelectTask.css";
-//import PropTypes from "prop-types";
 
 const SelectTask = ({ setSelectedTask }) => {
   return (
@@ -15,6 +15,10 @@ const SelectTask = ({ setSelectedTask }) => {
       </select>
     </div>
   );
+};
+
+SelectTask.propTypes = {
+  setSelectedTask: PropTypes.func.isRequired
 };
 
 export default SelectTask;

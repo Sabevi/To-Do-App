@@ -1,4 +1,4 @@
-.add-task{
+.add-task-container{
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
@@ -8,6 +8,8 @@
   cursor: pointer;
   border-radius: 5px;
   background-color: #26ADE4;
+  color: #FFFFFF;
   border: none;
   min-width: 85px;
+  font-size: 16px;
 }
