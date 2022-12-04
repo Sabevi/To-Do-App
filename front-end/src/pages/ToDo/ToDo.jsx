@@ -4,18 +4,21 @@ import SelectTask from "../../components/SelectTask/SelectTask";
 import ToDoList from "../../components/ToDoList/ToDoList";
 import "./ToDo.css";
 import useGetToDoList from "../../hooks/useGetToDoList";
+import useSendTask from "../../hooks/useSendTask";
 
 const ToDo = () => {
   const { loading, data, refresh } = useGetToDoList();
+  const { sendTask } = useSendTask();
   const [taskList, setTaskList] = useState(data);
   const [task, setTask] = useState("");
 
-  const addTask = () => {
+  const addTask = async () => {
     if (task.length) {
-      const newtaskList = [...taskList, { task, "done": false }]
-      setTaskList(newtaskList);
-    };
-  };
+      const taskObject = { task, "done": false};
+      sendTask(taskObject);
+      refresh();
+    }
+  }
 
   const removeTask = index => {
     const newTaskList = [...taskList];
@@ -28,6 +31,7 @@ const ToDo = () => {
     newTaskList[index].done = !newTaskList[index].done;
     setTaskList(newTaskList);
   };
+
 
   if(loading) {
     return <p>Loading</p>
