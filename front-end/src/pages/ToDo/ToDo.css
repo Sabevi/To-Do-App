@@ -1,14 +1,13 @@
 .todo {
   width: 100%;
   position: absolute;
-  min-height: 1000px;
   height: 100%;
   background-color: white;
   font-family: "Roboto", sans-serif;
 }
 
 .todo-section {
-  padding-top: 100px;
+  padding: 50px 30px;
   max-width: 900px;
   margin: 0 auto;
   justify-content: center;
