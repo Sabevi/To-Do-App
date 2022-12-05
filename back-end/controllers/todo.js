@@ -1,17 +1,17 @@
 const Todo = require("../models/todo");
 
 exports.getAllTodo = (req, res) => {
-  Todo.find()
+  Todo.find(req.body)
     .then((todo) => res.status(200).json(todo))
     .catch((err) =>
-      res.status(404).json({ message: "Todo not found", error: err.message })
+      res.status(404).json({ message: "Todo list not found", error: err.message })
     );
 };
 
 exports.createTodo = (req, res) => {
   Todo.create(req.body)
-    .then((data) =>
-      res.status(201).json({ message: "Todo added successfully", data })
+    .then((todo) =>
+      res.status(201).json({ message: "Todo added successfully", todo })
     )
     .catch((err) =>
       res
@@ -22,7 +22,7 @@ exports.createTodo = (req, res) => {
 
 exports.updateTodo = (req, res) => {
   Todo.findByIdAndUpdate(req.params.id, req.body)
-    .then((data) => res.json({ message: "updated successfully", data }))
+    .then((todo) => res.status(201).json({ message: "Todo updated successfully", todo }))
     .catch((err) =>
       res
         .status(400)
@@ -32,12 +32,12 @@ exports.updateTodo = (req, res) => {
 
 exports.deleteTodo = (req, res) => {
   Todo.findByIdAndRemove(req.params.id, req.body)
-    .then((data) =>
-      res.status(410).json({ message: "todo deleted successfully", data })
+    .then((todo) =>
+      res.status(410).json({ message: "Todo deleted successfully", todo })
     )
     .catch((err) =>
       res
         .status(404)
-        .json({ message: "Failed to delete to do", error: err.message })
+        .json({ message: "Failed to delete todo", error: err.message })
     );
 };

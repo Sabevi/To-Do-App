@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AddTask from "../../components/AddTask/AddTask";
 import SelectTask from "../../components/SelectTask/SelectTask";
 import ToDoList from "../../components/ToDoList/ToDoList";
-import useGetToDoList from "../../hooks/useGetToDoList";
+import useGetTaskList from "../../hooks/useGetTaskList";
 import useSendTask from "../../hooks/useSendTask";
 import useDeleteTask from "../../hooks/useDeleteTask";
 import useModifyTask from "../../hooks/useModifyTask";
@@ -10,7 +10,7 @@ import Loading from "../../assets/Loading";
 import "./ToDo.css";
 
 const ToDo = () => {
-  const { loading, data, refresh } = useGetToDoList();
+  const { loading, data, refresh } = useGetTaskList();
   const [taskList, setTaskList] = useState([]);
   const [task, setTask] = useState("");
   const [selectCategory, setSelectedCategory] = useState("");
@@ -24,9 +24,11 @@ const ToDo = () => {
 
   useEffect(() => {
     if (selectCategory === "only todo") {
+      setTaskList(data);
       const newTaskList = taskList.filter((element) => !element.done);
       setTaskList(newTaskList);
     } else if (selectCategory === "only done") {
+      setTaskList(data);
       const newTaskList = taskList.filter((element) => element.done);
       setTaskList(newTaskList);
     } else if (selectCategory === "all") {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useRefresh } from "./useRefresh";
 import axios from "../config/axios";
 
-const useGetToDoList = () => {
+const useGetTaskList = () => {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [refresh, count] = useRefresh();
@@ -32,4 +32,4 @@ const useGetToDoList = () => {
   return { loading, data, refresh };
 };
 
-export default useGetToDoList;
+export default useGetTaskList;
