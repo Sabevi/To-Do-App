@@ -1,13 +1,8 @@
 main {
-  width: 100%;
-  position: absolute;
   background-color: white;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   color: #000000;
-}
-
-.todo-container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 50px 30px;

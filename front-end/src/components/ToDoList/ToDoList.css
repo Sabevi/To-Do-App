@@ -3,6 +3,7 @@ table {
   border-top: 1px solid #dddddd;
   width: 100%;
   margin-top: 40px;
+  font-size: 14px;
 }
 
 tr {
@@ -16,7 +17,8 @@ td,
 
 td {
   justify-content: space-between;
-  padding: 15px;
+  align-items: center;
+  padding: 5px;
 }
 
 .checkbox-container {
@@ -32,12 +34,14 @@ input[type="checkbox"] {
 }
 
 .delete-item-button {
+  font-family: "Roboto", sans-serif;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 3px;
   background-color: #E4264E;
   color: #FFFFFF;
   border: none;
-  padding: 6px;
-  font-size: 16px;
+  width: 56px;
+  height: 26px;
+  font-size: 12px;
 }

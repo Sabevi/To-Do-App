@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faMapMarker } from "@fortawesome/free-solid-svg-icons";
 import "./AddTask.css";
 
 const AddTask = ({ updateTaskValue, addTask }) => {
@@ -10,8 +10,8 @@ const AddTask = ({ updateTaskValue, addTask }) => {
       <label htmlFor="add-task" className="sr-only">
         Add a new task
       </label>
+      <FontAwesomeIcon icon={faMapMarker} className="input-icon" />
       <input
-        className="input"
         id="add-task"
         type="text"
         placeholder="Write new task ..."
@@ -21,7 +21,9 @@ const AddTask = ({ updateTaskValue, addTask }) => {
         type="submit"
         className="add-task-button"
       >
-        <FontAwesomeIcon icon={faPlus} />Add
+        <FontAwesomeIcon icon={faPlus} />
+        {" "}
+        Add
       </button>
     </form>
   );

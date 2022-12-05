@@ -73,20 +73,18 @@ const ToDo = () => {
         <Loading />
       ) : (
         <main>
-          <div className="todo-container">
-            <AddTask 
-              updateTaskValue={updateTaskValue}
-              addTask={addTask}
-            />
-            <SelectTask
-              updateSelectedCategoryValue={updateSelectedCategoryValue}
-            />
-            <ToDoList
-              toggleCompletedTask={toggleCompletedTask}
-              removeTask={removeTask}
-              taskList={taskList}
-            />
-          </div>
+          <AddTask 
+            updateTaskValue={updateTaskValue}
+            addTask={addTask}
+          />
+          <SelectTask
+            updateSelectedCategoryValue={updateSelectedCategoryValue}
+          />
+          <ToDoList
+            toggleCompletedTask={toggleCompletedTask}
+            removeTask={removeTask}
+            taskList={taskList}
+          />
         </main>
       )}
     </>
