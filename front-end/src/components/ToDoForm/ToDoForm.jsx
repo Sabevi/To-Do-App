@@ -2,9 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMapMarker } from "@fortawesome/free-solid-svg-icons";
-import "./AddTask.css";
+import "./ToDoForm.css";
 
-const AddTask = ({ updateTaskValue, addTask }) => {
+const ToDoForm = ({ updateTaskValue, addTask }) => {
   return (
     <form onSubmit={addTask} className="add-task-container">
       <label htmlFor="add-task" className="sr-only">
@@ -29,9 +29,9 @@ const AddTask = ({ updateTaskValue, addTask }) => {
   );
 };
 
-AddTask.propTypes = {
+ToDoForm.propTypes = {
   updateTaskValue: PropTypes.func.isRequired,
   addTask: PropTypes.func.isRequired,
 };
 
-export default AddTask;
+export default ToDoForm;

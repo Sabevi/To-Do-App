@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import "bulma/css/bulma.min.css";
-import ToDo from "./pages/ToDo/ToDo";
+import ToDoList from "./pages/ToDoList/ToDoList";
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<ToDo />} />
+      <Route path="/" element={<ToDoList />} />
     </Routes>
   );
 }

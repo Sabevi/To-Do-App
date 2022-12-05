@@ -8,7 +8,6 @@ const {
   deleteTask,
 } = require("../controllers/task");
 
-
 router.get("/", getTasks);
 router.post("/", createTask);
 router.put("/:id", updateTask);
