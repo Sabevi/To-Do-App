@@ -8,10 +8,10 @@ const SelectTask = ({ updateSelectedCategoryValue }) => {
       <label htmlFor="select-task" className="select-label">
         Display :
       </label>
-      <select id="select-task" onChange={(e) => updateSelectedCategoryValue(e)}>
+      <select id="select-task" onChange={updateSelectedCategoryValue}>
         <option value="all">All</option>
-        <option value="only todo">Only Todo</option>
-        <option value="only done">Only done</option>
+        <option value="todo">Only Todo</option>
+        <option value="done">Only done</option>
       </select>
     </div>
   );

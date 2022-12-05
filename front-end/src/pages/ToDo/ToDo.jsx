@@ -23,14 +23,10 @@ const ToDo = () => {
   }, [data]);
 
   useEffect(() => {
-    if (selectCategory === "only todo") {
-      setTaskList(data);
-      const newTaskList = taskList.filter((element) => !element.done);
-      setTaskList(newTaskList);
-    } else if (selectCategory === "only done") {
-      setTaskList(data);
-      const newTaskList = taskList.filter((element) => element.done);
-      setTaskList(newTaskList);
+    if (selectCategory === "todo") {
+      setTaskList(data.filter((element) => !element.done));
+    } else if (selectCategory === "done") {
+      setTaskList(data.filter((element) => element.done));
     } else if (selectCategory === "all") {
       setTaskList(data);
     }
@@ -54,16 +50,14 @@ const ToDo = () => {
   };
 
   const removeTask = async (index) => {
-    const taskId = data[index]._id;
-    deleteTask(taskId);
+    deleteTask(data[index]._id);
     refresh();
   };
 
   const toggleCompletedTask = (index) => {
     const taskObject = data[index];
     taskObject.done = !taskObject.done;
-    const taskId = data[index]._id;
-    modifyTask(taskObject, taskId);
+    modifyTask(taskObject, data[index]._id);
     refresh();
   };
 
