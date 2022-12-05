@@ -4,29 +4,33 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import "./AddTask.css";
 
-const AddTask = ({ addTask, setTask }) => {
+const AddTask = ({ updateTaskValue, addTask }) => {
   return (
     <div className="add-task-container">
-      <label htmlFor="add-task" className="sr-only">Add a new task</label>
+      <label htmlFor="add-task" className="sr-only">
+        Add a new task
+      </label>
       <input
         className="input"
         id="add-task"
         type="text"
         placeholder="Write new task ..."
-        onChange={(e) => setTask(e.target.value)}
+        onChange={(e) => updateTaskValue(e)}
       />
-      <button className="add-task-button" onClick={() => addTask()}>
-        <FontAwesomeIcon icon={faPlus} />
-        {" "}
-        Add
+      <button
+        type="button"
+        className="add-task-button"
+        onClick={() => addTask()}
+      >
+        <FontAwesomeIcon icon={faPlus} />Add
       </button>
     </div>
   );
 };
 
 AddTask.propTypes = {
+  updateTaskValue: PropTypes.func.isRequired,
   addTask: PropTypes.func.isRequired,
-  setTask: PropTypes.func.isRequired,
 };
 
 export default AddTask;

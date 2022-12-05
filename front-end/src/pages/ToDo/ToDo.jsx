@@ -12,17 +12,15 @@ import "./ToDo.css";
 const ToDo = () => {
   const { loading, data, refresh } = useGetToDoList();
   const [taskList, setTaskList] = useState([]);
+  const [task, setTask] = useState("");
+  const [selectCategory, setSelectedCategory] = useState("");
   const { sendTask } = useSendTask();
   const { deleteTask } = useDeleteTask();
   const { modifyTask } = useModifyTask();
-  const [task, setTask] = useState("");
-  const [selectCategory, setSelectedCategory] = useState("");
 
   useEffect(() => {
     setTaskList(data);
   }, [data]);
-
-  console.log(taskList);
 
   useEffect(() => {
     if (selectCategory === "only todo") {
@@ -35,6 +33,14 @@ const ToDo = () => {
       setTaskList(data);
     }
   }, [selectCategory]);
+
+  const updateTaskValue = (e) => {
+    setTask(e.target.value);
+  };
+
+  const updateSelectedCategoryValue = (e) => {
+    setSelectedCategory(e.target.value);
+  };
 
   const addTask = async () => {
     if (task.length) {
@@ -64,16 +70,21 @@ const ToDo = () => {
       {loading ? (
         <Loading />
       ) : (
-        <main className="todo">
-          <section className="todo-section">
-            <AddTask addTask={addTask} setTask={setTask} />
-            <SelectTask setSelectedCategory={setSelectedCategory} />
+        <main>
+          <div className="todo-container">
+            <AddTask 
+              updateTaskValue={updateTaskValue}
+              addTask={addTask}
+            />
+            <SelectTask
+              updateSelectedCategoryValue={updateSelectedCategoryValue}
+            />
             <ToDoList
               toggleCompletedTask={toggleCompletedTask}
               removeTask={removeTask}
               taskList={taskList}
             />
-          </section>
+          </div>
         </main>
       )}
     </>

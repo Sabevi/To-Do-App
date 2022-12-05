@@ -9,7 +9,7 @@ const ToDoList = ({ toggleCompletedTask, removeTask, taskList }) => {
         {taskList.map((task, index) => (
           <tr key={index}>
             <td>
-              <div className="input-checkbox-container">
+              <div className="checkbox-container">
                 <input
                   id={`task ${index + 1}`}
                   type="checkbox"
@@ -17,9 +17,9 @@ const ToDoList = ({ toggleCompletedTask, removeTask, taskList }) => {
                 />
                 <label
                   htmlFor={`task ${index + 1}`}
-                  className={task.done ? "task-undelined" : ""}
+                  className={task.done ? "task-line" : ""}
                 >
-                {task.task}
+                  {task.task}
                 </label>
               </div>
               <button

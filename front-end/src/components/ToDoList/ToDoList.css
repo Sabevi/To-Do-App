@@ -7,13 +7,28 @@ table {
 
 tr {
   border-bottom: 1px solid #dddddd;
-  
+}
+
+td,
+.checkbox-container {
+  display: flex;
 }
 
 td {
-  display: flex;
   justify-content: space-between;
   padding: 15px;
+}
+
+.checkbox-container {
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task-line {
+  text-decoration: line-through;
 }
 
 .delete-item-button {
@@ -25,17 +40,4 @@ td {
   border: none;
   padding: 6px;
   font-size: 16px;
-}
-
-.task-undelined {
-  text-decoration: line-through;
-}
-
-.input-checkbox-container {
-  display: flex;
-  align-items: center;
-}
-
-input[type="checkbox"] {
-  margin-right: 10px;
 }
