@@ -10,17 +10,14 @@ const ToDoForm = ({ updateTaskValue, addTask }) => {
       <label htmlFor="add-task" className="sr-only">
         Add a new task
       </label>
-      <FontAwesomeIcon icon={faMapMarker} className="input-icon" />
+      <FontAwesomeIcon icon={faMapMarker} className="enter-text-icon" />
       <input
         id="add-task"
         type="text"
         placeholder="Write new task ..."
         onChange={updateTaskValue}
       />
-      <button
-        type="submit"
-        className="add-task-button"
-      >
+      <button type="submit" className="add-task-button">
         <FontAwesomeIcon icon={faPlus} />
         {" "}
         Add
@@ -31,7 +28,7 @@ const ToDoForm = ({ updateTaskValue, addTask }) => {
 
 ToDoForm.propTypes = {
   updateTaskValue: PropTypes.func.isRequired,
-  addTask: PropTypes.func.isRequired,
+  addTask: PropTypes.func.isRequired
 };
 
 export default ToDoForm;

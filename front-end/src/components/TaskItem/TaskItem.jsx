@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import "./TaskItem.css";
 
-const TaskItem = ({  task, index, toggleCompletedTask, removeTask,}) => {
+const TaskItem = ({ task, index, toggleCompletedTask, removeTask }) => {
   return (
     <>
-      <div className="checkbox-container">
+      <div className="check-task-container">
         <input
           id={`task ${index + 1}`}
           type="checkbox"
@@ -18,7 +18,10 @@ const TaskItem = ({  task, index, toggleCompletedTask, removeTask,}) => {
           {task.name}
         </label>
       </div>
-      <button className="delete-item-button" onClick={() => removeTask(index)}>
+      <button 
+        className="delete-item-button"
+        onClick={() => removeTask(index)}
+      >
         Delete
       </button>
     </>
@@ -26,10 +29,10 @@ const TaskItem = ({  task, index, toggleCompletedTask, removeTask,}) => {
 };
 
 TaskItem.propTypes = {
-  task: PropTypes.string.isRequired,
+  task: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired,
   toggleCompletedTask: PropTypes.func.isRequired,
-  removeTask: PropTypes.func.isRequired,
+  removeTask: PropTypes.func.isRequired
 };
 
 export default TaskItem;

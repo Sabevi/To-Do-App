@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ToDoForm from "../../components/ToDoForm/ToDoForm";
-import TaskItem from "../../components/TaskItem/TaskItem";
+import ToDoList from "../../components/ToDoList/ToDoList";
 import useGetTaskList from "../../hooks/useGetTaskList";
 import useSendTask from "../../hooks/useSendTask";
 import useDeleteTask from "../../hooks/useDeleteTask";
 import useModifyTask from "../../hooks/useModifyTask";
 import Loading from "../../assets/Loading";
-import "./ToDoList.css";
+import "./ToDo.css";
 
-const ToDoList = () => {
+const ToDo = () => {
   const { loading, data, setData } = useGetTaskList();
   const [taskList, setTaskList] = useState([]);
   const [name, setName] = useState("");
@@ -72,37 +72,32 @@ const ToDoList = () => {
         <Loading />
       ) : (
         <main>
-          <ToDoForm updateTaskValue={updateTaskValue} addTask={addTask} />
+          <ToDoForm
+            updateTaskValue={updateTaskValue} 
+            addTask={addTask}
+          />
           <div className="select select-task-container">
             <label htmlFor="select-task" className="select-label">
               Display :
             </label>
-            <select id="select-task" onChange={updateSelectedCategoryValue}>
+            <select
+              id="select-task"
+              onChange={updateSelectedCategoryValue}
+            >
               <option value="all">All</option>
               <option value="todo">Only Todo</option>
               <option value="done">Only done</option>
             </select>
           </div>
-          <table>
-            <tbody>
-              {taskList.map((task, index) => (
-                <tr key={index}>
-                  <td>
-                    <TaskItem
-                      task={task}
-                      index={index}
-                      toggleCompletedTask={toggleCompletedTask}
-                      removeTask={removeTask}
-                    />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+          <ToDoList
+            taskList={taskList}
+            toggleCompletedTask={toggleCompletedTask}
+            removeTask={removeTask}
+          />
         </main>
       )}
     </>
   );
 };
 
-export default ToDoList;
+export default ToDo;
