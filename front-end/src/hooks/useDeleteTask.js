@@ -4,13 +4,14 @@ const useDeleteTask = () => {
 
   const deleteTask = async (id) => {
     try {
-      await axios.delete(
+      const response = await axios.delete(
         `${process.env.REACT_APP_API_URL}/api/todo/${id}`,
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
         }
       );
+      return response.data;
     } catch (error) {
       if (!error.response) {
         console.error(error.message);

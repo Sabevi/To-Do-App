@@ -6,7 +6,7 @@ import "./AddTask.css";
 
 const AddTask = ({ updateTaskValue, addTask }) => {
   return (
-    <div className="add-task-container">
+    <form onSubmit={addTask} className="add-task-container">
       <label htmlFor="add-task" className="sr-only">
         Add a new task
       </label>
@@ -15,16 +15,15 @@ const AddTask = ({ updateTaskValue, addTask }) => {
         id="add-task"
         type="text"
         placeholder="Write new task ..."
-        onChange={(e) => updateTaskValue(e)}
+        onChange={updateTaskValue}
       />
       <button
-        type="button"
+        type="submit"
         className="add-task-button"
-        onClick={() => addTask()}
       >
         <FontAwesomeIcon icon={faPlus} />Add
       </button>
-    </div>
+    </form>
   );
 };
 

@@ -4,7 +4,7 @@ const useModify = () => {
 
   const modifyTask = async (data, id) => {
     try {
-      await axios.put(
+      const response = await axios.put(
         `${process.env.REACT_APP_API_URL}/api/todo/${id}`,
         JSON.stringify({
           done: data.done
@@ -14,6 +14,7 @@ const useModify = () => {
           withCredentials: true,
         }
       );
+      return response.data;
     } catch (error) {
       if (!error.response) {
         console.error(error.message);

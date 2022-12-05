@@ -19,7 +19,7 @@ const ToDoList = ({ toggleCompletedTask, removeTask, taskList }) => {
                   htmlFor={`task ${index + 1}`}
                   className={task.done ? "task-line" : ""}
                 >
-                  {task.task}
+                  {task.name}
                 </label>
               </div>
               <button
@@ -39,7 +39,7 @@ const ToDoList = ({ toggleCompletedTask, removeTask, taskList }) => {
 ToDoList.propTypes = {
   taskList: PropTypes.arrayOf(
     PropTypes.shape({
-      task: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       done: PropTypes.bool.isRequired,
     })
   ).isRequired,

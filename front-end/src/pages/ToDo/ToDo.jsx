@@ -10,7 +10,7 @@ import Loading from "../../assets/Loading";
 import "./ToDo.css";
 
 const ToDo = () => {
-  const { loading, data, refresh } = useGetTaskList();
+  const { loading, data, setData } = useGetTaskList();
   const [taskList, setTaskList] = useState([]);
   const [task, setTask] = useState("");
   const [selectCategory, setSelectedCategory] = useState("");
@@ -40,25 +40,31 @@ const ToDo = () => {
     setSelectedCategory(e.target.value);
   };
 
-  const addTask = async () => {
+  const addTask = async (e) => {
+    e.preventDefault();
+
     if (task.length) {
-      let taskObject = { task, done: false };
-      sendTask(taskObject);
-      refresh();
+      const response = await sendTask({ name: task, done: false });
+      setData((oldData) => [...oldData, response.todo]);
       setTask("");
+      document.querySelector("form").reset();
     }
   };
 
   const removeTask = async (index) => {
-    deleteTask(data[index]._id);
-    refresh();
+    const response = await deleteTask(data[index]._id);
+    setData(data.filter((element) => element._id !== response.todo._id));
   };
 
-  const toggleCompletedTask = (index) => {
+  const toggleCompletedTask = async (index) => {
     const taskObject = data[index];
     taskObject.done = !taskObject.done;
-    modifyTask(taskObject, data[index]._id);
-    refresh();
+    const response = await modifyTask(taskObject, data[index]._id);
+    const newData = [...data];
+    newData.map((element) => {
+      return response.todo._id === element._id ? response.todo : element;
+    })
+    setData(newData);
   };
 
   return (

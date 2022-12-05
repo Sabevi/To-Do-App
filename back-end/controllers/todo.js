@@ -33,7 +33,7 @@ exports.updateTodo = (req, res) => {
 exports.deleteTodo = (req, res) => {
   Todo.findByIdAndRemove(req.params.id, req.body)
     .then((todo) =>
-      res.status(410).json({ message: "Todo deleted successfully", todo })
+      res.status(200).json({ message: "Todo deleted successfully", todo })
     )
     .catch((err) =>
       res

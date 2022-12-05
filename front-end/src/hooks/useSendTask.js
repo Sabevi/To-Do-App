@@ -4,10 +4,10 @@ const useSendTask = () => {
 
   const sendTask = async (data) => {
     try {
-      await axios.post( 
+      const response = await axios.post(
        `${process.env.REACT_APP_API_URL}/api/todo`,
         JSON.stringify({
-          task: data.task,
+          name: data.name,
           done: data.done
         }),
         {
@@ -15,6 +15,7 @@ const useSendTask = () => {
           withCredentials: true,
         }
       );
+      return response.data;
     } catch (error) {
       if (!error.response) {
         console.error(error.message);
