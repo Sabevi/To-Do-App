@@ -17,7 +17,7 @@ const ToDoList = ({ toggleCompletedTask, removeTask, taskList }) => {
                 />
                 <label
                   htmlFor={`task ${index + 1}`}
-                  className={task.done ? "task-line" : ""}
+                  className={task.completed ? "task-line" : ""}
                 >
                   {task.name}
                 </label>
@@ -40,7 +40,7 @@ ToDoList.propTypes = {
   taskList: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string.isRequired,
-      done: PropTypes.bool.isRequired,
+      completed: PropTypes.bool.isRequired,
     })
   ).isRequired,
   toggleCompletedTask: PropTypes.func.isRequired,

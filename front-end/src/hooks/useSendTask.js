@@ -8,7 +8,7 @@ const useSendTask = () => {
        `${process.env.REACT_APP_API_URL}/api/todo`,
         JSON.stringify({
           name: data.name,
-          done: data.done
+          completed: data.completed
         }),
         {
           headers: { "Content-Type": "application/json" },

@@ -12,7 +12,7 @@ import "./ToDo.css";
 const ToDo = () => {
   const { loading, data, setData } = useGetTaskList();
   const [taskList, setTaskList] = useState([]);
-  const [task, setTask] = useState("");
+  const [name, setName] = useState("");
   const [selectCategory, setSelectedCategory] = useState("");
   const { sendTask } = useSendTask();
   const { deleteTask } = useDeleteTask();
@@ -24,16 +24,16 @@ const ToDo = () => {
 
   useEffect(() => {
     if (selectCategory === "todo") {
-      setTaskList(data.filter((element) => !element.done));
+      setTaskList(data.filter((element) => !element.completed));
     } else if (selectCategory === "done") {
-      setTaskList(data.filter((element) => element.done));
+      setTaskList(data.filter((element) => element.completed));
     } else if (selectCategory === "all") {
       setTaskList(data);
     }
   }, [selectCategory]);
 
   const updateTaskValue = (e) => {
-    setTask(e.target.value);
+    setName(e.target.value);
   };
 
   const updateSelectedCategoryValue = (e) => {
@@ -43,10 +43,10 @@ const ToDo = () => {
   const addTask = async (e) => {
     e.preventDefault();
 
-    if (task.length) {
-      const response = await sendTask({ name: task, done: false });
+    if (name.length) {
+      const response = await sendTask({ name, completed: false });
       setData((oldData) => [...oldData, response.todo]);
-      setTask("");
+      setName("");
       document.querySelector("form").reset();
     }
   };
@@ -58,7 +58,7 @@ const ToDo = () => {
 
   const toggleCompletedTask = async (index) => {
     const taskObject = data[index];
-    taskObject.done = !taskObject.done;
+    taskObject.completed = !taskObject.completed;
     const response = await modifyTask(taskObject, data[index]._id);
     const newData = [...data];
     newData.map((element) => {

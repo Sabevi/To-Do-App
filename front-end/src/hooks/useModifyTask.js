@@ -7,7 +7,7 @@ const useModify = () => {
       const response = await axios.put(
         `${process.env.REACT_APP_API_URL}/api/todo/${id}`,
         JSON.stringify({
-          done: data.done
+          completed: data.completed
         }),
         {
           headers: { "Content-Type": "application/json" },

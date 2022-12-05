@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 
 const TodoSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  done: { type: Boolean, required: true },
+  completed: { type: Boolean, required: true },
 });
 
 const Todo = mongoose.model("Todo", TodoSchema);
