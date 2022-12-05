@@ -13,7 +13,7 @@ const ToDo = () => {
   const { loading, data, setData } = useGetTaskList();
   const [taskList, setTaskList] = useState([]);
   const [name, setName] = useState("");
-  const [selectCategory, setSelectedCategory] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
   const { sendTask } = useSendTask();
   const { deleteTask } = useDeleteTask();
   const { modifyTask } = useModifyTask();
@@ -23,14 +23,14 @@ const ToDo = () => {
   }, [data]);
 
   useEffect(() => {
-    if (selectCategory === "todo") {
+    if (selectedCategory === "todo") {
       setTaskList(data.filter((element) => !element.completed));
-    } else if (selectCategory === "done") {
+    } else if (selectedCategory === "done") {
       setTaskList(data.filter((element) => element.completed));
-    } else if (selectCategory === "all") {
+    } else if (selectedCategory === "all") {
       setTaskList(data);
     }
-  }, [selectCategory]);
+  }, [selectedCategory]);
 
   const updateTaskValue = (e) => {
     setName(e.target.value);
@@ -45,7 +45,7 @@ const ToDo = () => {
 
     if (name.length) {
       const response = await sendTask({ name, completed: false });
-      setData((oldData) => [...oldData, response.todo]);
+      setData((oldData) => [...oldData, response.task]);
       setName("");
       document.querySelector("form").reset();
     }
@@ -53,7 +53,7 @@ const ToDo = () => {
 
   const removeTask = async (index) => {
     const response = await deleteTask(data[index]._id);
-    setData(data.filter((element) => element._id !== response.todo._id));
+    setData(data.filter((element) => element._id !== response.task._id));
   };
 
   const toggleCompletedTask = async (index) => {
@@ -62,7 +62,7 @@ const ToDo = () => {
     const response = await modifyTask(taskObject, data[index]._id);
     const newData = [...data];
     newData.map((element) => {
-      return response.todo._id === element._id ? response.todo : element;
+      return response.task._id === element._id ? response.task : element;
     })
     setData(newData);
   };

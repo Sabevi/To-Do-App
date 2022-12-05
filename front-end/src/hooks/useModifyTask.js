@@ -5,7 +5,7 @@ const useModify = () => {
   const modifyTask = async (data, id) => {
     try {
       const response = await axios.put(
-        `${process.env.REACT_APP_API_URL}/api/todo/${id}`,
+        `${process.env.REACT_APP_API_URL}/api/${id}`,
         JSON.stringify({
           completed: data.completed
         }),
