@@ -1,0 +1,47 @@
+.add-task-container{
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+input {
+  height: 48px;
+}
+
+input[type="text"] {
+  font-family: "Roboto", sans-serif;
+  color: rgba(0,0,0,0.54);
+  font-size: 18px;
+  height: 39px;
+  width: 100%;
+  border:none;
+  border-bottom: 1px solid #7A7A7A;
+  padding-left: 25px;
+  padding-bottom: 20px;
+}
+
+input[type="text"]::placeholder {
+  color: #BBBBBB;
+}
+
+input[type=text]:focus{
+  outline: none;
+}
+
+.input-icon {
+  position: relative;
+  left: 15px;
+}
+
+.add-task-button {
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  border-radius: 3px;
+  background-color: #26ADE4;
+  color: #FFFFFF;
+  border: none;
+  max-width: 76px;
+  width: 100%;
+  font-size: 16px;
+  margin-left: 20px;
+}

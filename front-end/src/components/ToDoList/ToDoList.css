@@ -1,0 +1,47 @@
+table {
+  border-collapse: collapse;
+  border-top: 1px solid #dddddd;
+  width: 100%;
+  margin-top: 40px;
+  font-size: 14px;
+}
+
+tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+td,
+.checkbox-container {
+  display: flex;
+}
+
+td {
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
+
+.checkbox-container {
+  align-items: center;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task-line {
+  text-decoration: line-through;
+}
+
+.delete-item-button {
+  font-family: "Roboto", sans-serif;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  background-color: #E4264E;
+  color: #FFFFFF;
+  border: none;
+  width: 56px;
+  height: 26px;
+  font-size: 12px;
+}
