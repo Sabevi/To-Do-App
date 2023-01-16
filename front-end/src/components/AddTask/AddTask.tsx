@@ -1,19 +1,23 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React, { useState, FC } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import useSendTask from "../../hooks/useSendTask";
 import "./AddTask.css";
 
-const AddTask = ({ setData }) => {
-  const [name, setName] = useState("");
+interface Props {
+  setData: React.Dispatch<React.SetStateAction<string[]>>;
+}
+
+const AddTask: FC<Props> = ({ setData }) => {
+  const [name, setName] = useState<string>("");
   const { sendTask } = useSendTask();
 
-  const updateTaskValue = (e) => {
-    setName(e.target.value);
+  const updateTaskValue = (e: React.FormEvent) => {
+    let input = e.target as HTMLInputElement;
+    setName(input.value);
   };
 
-  const addTask = async (e) => {
+  const addTask = async (e: React.FormEvent) => {
     e.preventDefault();
 
     if (name.length) {
@@ -44,11 +48,6 @@ const AddTask = ({ setData }) => {
       </button>
     </form>
   );
-};
-
-AddTask.propTypes = {
-  updateTaskValue: PropTypes.func.isRequired,
-  addTask: PropTypes.func.isRequired,
 };
 
 export default AddTask;

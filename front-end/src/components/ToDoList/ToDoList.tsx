@@ -1,25 +1,31 @@
 import React from "react";
-import PropTypes from "prop-types";
 import useDeleteTask from "../../hooks/useDeleteTask";
 import useModifyTask from "../../hooks/useModifyTask";
+import { Data, Response } from "../../config/models";
 import "./ToDoList.css";
 
-const ToDoList = ({ data, setData, taskList }) => {
+interface Props {
+  data: Data[];
+  setData: React.Dispatch<React.SetStateAction<Data[]>>;
+  taskList: Data[];
+}
 
+const ToDoList = ({ data, setData, taskList }: Props) => {
   const { deleteTask } = useDeleteTask();
   const { modifyTask } = useModifyTask();
 
-  const removeTask = async (index) => {
-    const response = await deleteTask(data[index]._id);
-    setData(data.filter((element) => element._id !== response.task._id));
+  const removeTask = async (index: number) => {
+    const response: Response = await deleteTask(data[index]._id);
+    setData(data.filter((element: Data) => element._id !== response.task._id));
   };
 
-  const toggleCompletedTask = async (index) => {
-    const taskObject = data[index];
+  const toggleCompletedTask = async (index: number) => {
+    const taskObject: Data = data[index];
     taskObject.completed = !taskObject.completed;
-    const response = await modifyTask(taskObject, data[index]._id);
+    const response: Response = await modifyTask(taskObject, data[index]._id);
+    console.log("response", response);
     const newData = [...data];
-    newData.map((element) => {
+    newData.map((element: Data) => {
       return response.task._id === element._id ? response.task : element;
     })
     setData(newData);
@@ -56,17 +62,6 @@ const ToDoList = ({ data, setData, taskList }) => {
       </tbody>
     </table>
   );
-};
-
-ToDoList.propTypes = {
-  taskList: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      completed: PropTypes.bool.isRequired,
-    })
-  ).isRequired,
-  toggleCompletedTask: PropTypes.func.isRequired,
-  removeTask: PropTypes.func.isRequired,
 };
 
 export default ToDoList;

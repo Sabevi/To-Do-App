@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import axios from "../config/axios";
+import { Data } from "../config/models";
 
 const useGetTaskList = () => {
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [data, setData] = useState<Data[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,8 +19,8 @@ const useGetTaskList = () => {
         );
         setData(response);
   
-      } catch (error) {
-        console.error(error.message);
+      } catch (error: any) {
+        console.log(error);
       }
       setLoading(false);
     };

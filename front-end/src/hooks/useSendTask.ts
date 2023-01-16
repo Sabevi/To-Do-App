@@ -1,8 +1,9 @@
 import axios from "../config/axios";
+import { Data } from "../config/models";
 
 const useSendTask = () => {
 
-  const sendTask = async (data) => {
+  const sendTask = async (data: Data) => {
     try {
       const response = await axios.post(
        `${process.env.REACT_APP_API_URL}/api`,
@@ -16,7 +17,7 @@ const useSendTask = () => {
         }
       );
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       if (!error.response) {
         console.error(error.message);
       }

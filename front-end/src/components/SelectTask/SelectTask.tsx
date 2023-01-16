@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
 import "./SelectTask.css";
+import { Data } from "../../config/models";
 
-const SelectTask = ({ data, setTaskList }) => {
+interface Props {
+  data: Data[];
+  setTaskList: React.Dispatch<React.SetStateAction<Data[]>>;
+}
 
-  const [selectedCategory, setSelectedCategory] = useState("");
+const SelectTask = ({ data, setTaskList }: Props) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>("");
   
   useEffect(() => {
     if (selectedCategory === "todo") {
-      setTaskList(data.filter((element) => !element.completed));
+      setTaskList(data.filter((element: Data) => !element.completed));
     } else if (selectedCategory === "done") {
-      setTaskList(data.filter((element) => element.completed));
+      setTaskList(data.filter((element: Data) => element.completed));
     } else if (selectedCategory === "all") {
       setTaskList(data);
     }
   }, [selectedCategory]);
 
-  const updateSelectedCategoryValue = (e) => {
-    setSelectedCategory(e.target.value);
+  const updateSelectedCategoryValue = (e: React.FormEvent) => {
+    let input = e.target as HTMLInputElement;
+    setSelectedCategory(input.value);
   };
 
   return (
@@ -32,10 +37,6 @@ const SelectTask = ({ data, setTaskList }) => {
       </select>
     </div>
   );
-};
-
-SelectTask.propTypes = {
-  updateSelectedCategoryValue: PropTypes.func.isRequired,
 };
 
 export default SelectTask;

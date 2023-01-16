@@ -4,11 +4,12 @@ import SelectTask from "../../components/SelectTask/SelectTask";
 import ToDoList from "../../components/ToDoList/ToDoList";
 import useGetTaskList from "../../hooks/useGetTaskList";
 import Loading from "../../assets/Loading";
+import { Data } from "../../config/models";
 import "./ToDo.css";
 
 const ToDo = () => {
   const { loading, data, setData } = useGetTaskList();
-  const [taskList, setTaskList] = useState([]);
+  const [taskList, setTaskList] = useState<Data[]>([]);
 
   useEffect(() => {
     setTaskList(data);

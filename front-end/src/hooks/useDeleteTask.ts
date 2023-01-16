@@ -2,7 +2,7 @@ import axios from "../config/axios";
 
 const useDeleteTask = () => {
 
-  const deleteTask = async (id) => {
+  const deleteTask = async (id: number) => {
     try {
       const response = await axios.delete(
         `${process.env.REACT_APP_API_URL}/api/${id}`,
@@ -12,7 +12,7 @@ const useDeleteTask = () => {
         }
       );
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       if (!error.response) {
         console.error(error.message);
       }

@@ -1,8 +1,9 @@
 import axios from "../config/axios";
+import { Data } from "../config/models";
 
 const useModify = () => {
 
-  const modifyTask = async (data, id) => {
+  const modifyTask = async (data: Data, id: number) => {
     try {
       const response = await axios.put(
         `${process.env.REACT_APP_API_URL}/api/${id}`,
@@ -15,7 +16,7 @@ const useModify = () => {
         }
       );
       return response.data;
-    } catch (error) {
+    } catch (error: any) {
       if (!error.response) {
         console.error(error.message);
       }
