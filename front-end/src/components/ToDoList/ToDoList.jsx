@@ -45,7 +45,7 @@ const ToDoList = ({ data, setData, taskList }) => {
                 </label>
               </div>
               <button
-                className="delete-item-button"
+                className="button is-rounded is-small action-button"
                 onClick={() => removeTask(index)}
               >
                 Delete

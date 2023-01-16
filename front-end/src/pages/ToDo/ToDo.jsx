@@ -20,6 +20,7 @@ const ToDo = () => {
         <Loading />
       ) : (
         <main>
+          <h1>To Do App</h1>
           <AddTask
           setData={setData}
           />

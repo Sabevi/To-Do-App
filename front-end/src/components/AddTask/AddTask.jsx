@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faMapMarker } from "@fortawesome/free-solid-svg-icons";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import useSendTask from "../../hooks/useSendTask";
 import "./AddTask.css";
 
@@ -29,19 +29,17 @@ const AddTask = ({ setData }) => {
       <label htmlFor="add-task" className="sr-only">
         Add a new task
       </label>
-      <FontAwesomeIcon icon={faMapMarker} className="input-icon" />
       <input
         id="add-task"
         type="text"
-        placeholder="Write new task ..."
+        placeholder="Add a task ..."
         onChange={updateTaskValue}
       />
       <button
         type="submit"
-        className="add-task-button"
+        className="button is-rounded big-action-button"
       >
-        <FontAwesomeIcon icon={faPlus} />
-        {" "}
+        <FontAwesomeIcon icon={faPlus} className="add-task-icon" />
         Add
       </button>
     </form>

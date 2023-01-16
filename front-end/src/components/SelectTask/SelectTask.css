@@ -7,9 +7,20 @@
 
 .select-label {
   padding-right: 10px;
+  color: #000000;
 }
 
 select {
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+@media(max-width: 800px) {
+  .select-label {
+    font-size: 14px;
+  }
+
+  .select select {
+    height: 35px;
+    font-size: 14px;
+  }
 }

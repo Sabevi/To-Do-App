@@ -1,10 +1,22 @@
 main {
   background-color: white;
-  font-family: "Roboto", sans-serif;
+  font-family: "Lexend Deca", sans-serif;
   font-size: 16px;
   color: #000000;
   max-width: 1000px;
   margin: 0 auto;
   padding: 50px 30px;
   justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 25px;
+}
+
+@media(max-width: 800px) {
+  h1 {
+    font-size: 20px;
+  }
 }

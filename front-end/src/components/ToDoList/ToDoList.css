@@ -33,15 +33,8 @@ input[type="checkbox"] {
   text-decoration: line-through;
 }
 
-.delete-item-button {
-  font-family: "Roboto", sans-serif;
-  cursor: pointer;
-  border: none;
-  border-radius: 3px;
-  background-color: #E4264E;
-  color: #FFFFFF;
-  border: none;
-  width: 56px;
-  height: 26px;
-  font-size: 12px;
+.action-button,
+.action-button:hover  {
+  border: 1px solid #ef3555;
+  color: #ef3555;
 }
