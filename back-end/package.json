@@ -2,9 +2,10 @@
   "name": "back-end",
   "version": "1.0.0",
   "description": "",
-  "main": "sever.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
@@ -12,12 +13,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/express": "^4.17.15",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^18.11.18",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^6.7.5"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "@types/express-handlebars": "^6.0.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1"
   }
 }

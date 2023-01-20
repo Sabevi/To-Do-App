@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import AddTask from "../../components/AddTask/AddTask";
-import SelectTask from "../../components/SelectTask/SelectTask";
-import ToDoList from "../../components/ToDoList/ToDoList";
+import React, { useState, useEffect, FC } from "react";
 import useGetTaskList from "../../hooks/useGetTaskList";
 import Loading from "../../assets/Loading";
-import { Data } from "../../config/models";
 import "./ToDo.css";
+import { AddTask } from "components/AddTask";
+import { SelectTask } from "components/SelectTask";
+import { ToDoList } from "components/ToDoList/ToDoList";
+import { TaskList } from "config/common.types";
 
-const ToDo = () => {
+const ToDo: FC = () => {
   const { loading, data, setData } = useGetTaskList();
-  const [taskList, setTaskList] = useState<Data[]>([]);
+  const [taskList, setTaskList] = useState<TaskList[]>([]);
 
   useEffect(() => {
     setTaskList(data);

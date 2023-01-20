@@ -1,16 +1,11 @@
+import { Data } from "config/common.types";
 import React from "react";
 import useDeleteTask from "../../hooks/useDeleteTask";
 import useModifyTask from "../../hooks/useModifyTask";
-import { Data, Response } from "../../config/models";
 import "./ToDoList.css";
+import { ToDoListProps, Response } from "./ToDoList.types";
 
-interface Props {
-  data: Data[];
-  setData: React.Dispatch<React.SetStateAction<Data[]>>;
-  taskList: Data[];
-}
-
-const ToDoList = ({ data, setData, taskList }: Props) => {
+export const ToDoList = ({ data, setData, taskList }: ToDoListProps) => {
   const { deleteTask } = useDeleteTask();
   const { modifyTask } = useModifyTask();
 
@@ -63,5 +58,3 @@ const ToDoList = ({ data, setData, taskList }: Props) => {
     </table>
   );
 };
-
-export default ToDoList;

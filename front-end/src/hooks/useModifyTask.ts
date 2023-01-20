@@ -1,5 +1,5 @@
+import { Data } from "config/common.types";
 import axios from "../config/axios";
-import { Data } from "../config/models";
 
 const useModify = () => {
 

@@ -1,6 +1,6 @@
+import { Data } from "config/common.types";
 import { useEffect, useState } from "react";
 import axios from "../config/axios";
-import { Data } from "../config/models";
 
 const useGetTaskList = () => {
   const [loading, setLoading] = useState<boolean>(true);

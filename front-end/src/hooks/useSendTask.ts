@@ -1,9 +1,9 @@
+import { AddTaskRequestProps } from "../components/AddTask";
 import axios from "../config/axios";
-import { Data } from "../config/models";
 
 const useSendTask = () => {
 
-  const sendTask = async (data: Data) => {
+  const sendTask = async (data: AddTaskRequestProps) => {
     try {
       const response = await axios.post(
        `${process.env.REACT_APP_API_URL}/api`,

@@ -3,12 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import useSendTask from "../../hooks/useSendTask";
 import "./AddTask.css";
+import { AddTaskProps } from "./AddTask.types";
 
-interface Props {
-  setData: React.Dispatch<React.SetStateAction<string[]>>;
-}
-
-const AddTask: FC<Props> = ({ setData }) => {
+export const AddTask: FC<AddTaskProps> = ({ setData }) => {
   const [name, setName] = useState<string>("");
   const { sendTask } = useSendTask();
 
@@ -24,7 +21,7 @@ const AddTask: FC<Props> = ({ setData }) => {
       const response = await sendTask({ name, completed: false });
       setData((oldData) => [...oldData, response.task]);
       setName("");
-      document.querySelector("form").reset();
+      document.querySelector("form")?.reset();
     }
   };
 
@@ -49,5 +46,3 @@ const AddTask: FC<Props> = ({ setData }) => {
     </form>
   );
 };
-
-export default AddTask;

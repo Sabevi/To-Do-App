@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { Data } from "config/common.types";
+import React, { useState, useEffect, FC } from "react";
 import "./SelectTask.css";
-import { Data } from "../../config/models";
+import { SelectTaskProps } from "./SelectTask.types";
 
-interface Props {
-  data: Data[];
-  setTaskList: React.Dispatch<React.SetStateAction<Data[]>>;
-}
-
-const SelectTask = ({ data, setTaskList }: Props) => {
+export const SelectTask:FC<SelectTaskProps> = ({ data, setTaskList }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   
   useEffect(() => {
@@ -38,5 +34,3 @@ const SelectTask = ({ data, setTaskList }: Props) => {
     </div>
   );
 };
-
-export default SelectTask;
