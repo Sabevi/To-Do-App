@@ -1,6 +1,7 @@
-//import {Error} from "mongoose"; err: Error. ...
 import mongoose from "mongoose";
-require('dotenv').config();
+import { config } from "dotenv";
+
+config();
 
 export const connectToDatabase = async () => {
   try {

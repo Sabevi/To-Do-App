@@ -1,15 +1,14 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const connectToDatabase = require("./config/databaseConnection");
-const task = require("./routes/task");
+import express from "express";
+import cors from "cors";
+import { connectToDatabase }from "./config/databaseConnection";
+import { router } from "./routes/task";
 
 connectToDatabase();
 
 const app = express();
 app.use(cors({ origin: true, credentials: true }));
-app.use(express.json({ extended: false }));
-app.use("/api", task);
+app.use(express.json());
+app.use("/api", router);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
