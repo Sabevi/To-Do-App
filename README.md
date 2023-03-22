@@ -13,13 +13,6 @@
 $ npm install
 ```
 
-3. Run server
-
-```
-$ npm start
-$ nodemon server
-```
-
 
 ## Launch the front-end
 
@@ -31,8 +24,9 @@ $ nodemon server
 $ npm install
 ```
 
-3. Run server
+
+## Launch the front-end and the back-end simultaneously
 
 ```
-$ npm start
+$ docker-compose up -d
 ```
