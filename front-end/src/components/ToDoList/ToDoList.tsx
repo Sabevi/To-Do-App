@@ -37,6 +37,7 @@ export const ToDoList = ({ data, setData, taskList }: ToDoListProps) => {
                   id={`task ${index + 1}`}
                   type="checkbox"
                   onChange={() => toggleCompletedTask(index)}
+                  data-cy="toggle-check"
                 />
                 <label
                   htmlFor={`task ${index + 1}`}
