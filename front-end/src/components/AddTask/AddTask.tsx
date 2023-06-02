@@ -35,10 +35,12 @@ export const AddTask: FC<AddTaskProps> = ({ setData }) => {
         type="text"
         placeholder="Add a task ..."
         onChange={updateTaskValue}
+        data-cy="add-task"
       />
       <button
         type="submit"
         className="button is-rounded big-action-button"
+        data-cy="submit"
       >
         <FontAwesomeIcon icon={faPlus} className="add-task-icon" />
         Add
