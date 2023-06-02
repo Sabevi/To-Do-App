@@ -3,7 +3,7 @@
 
 **To Do App** is an app based on NodeJs and React.js.
 
-## Launch the back-end
+## Launch the back-end with npm
 
 1. Clone the repository
 
@@ -12,9 +12,12 @@
 ```
 $ npm install
 ```
+3. Launch the server
+```
+$ npm start
+``````
 
-
-## Launch the front-end
+## Launch the front-end with npm
 
 1. Clone the repository
 
@@ -23,9 +26,15 @@ $ npm install
 ```
 $ npm install
 ```
+3. Launch the server
 
-
-## Launch the front-end and the back-end simultaneously
+```
+$ npm run serve
+``````
+```
+$ nodemon server
+``````
+## Launch the front-end and the back-end simultaneously with Docker
 
 ```
 $ docker-compose up -d
