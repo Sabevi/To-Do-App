@@ -48,6 +48,7 @@ export const ToDoList = ({ data, setData, taskList }: ToDoListProps) => {
               <button
                 className="button is-rounded is-small action-button"
                 onClick={() => removeTask(index)}
+                data-cy="remove-todo"
               >
                 Delete
               </button>

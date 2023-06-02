@@ -4,8 +4,11 @@ describe("create todo spec", () => {
   });
 
   it("successfully add a task", () => {
-    cy.get("[data-cy='add-task']").type("Sprint meeting");
+    cy.get("[data-cy='add-task']").type("Do the laundry");
     cy.get("[data-cy='submit']").click();
-    cy.contains("Sprint meeting").should("exist");
-  })
+    cy.contains("Do the laundry").should("exist");
+  });
+
 });
+
+
