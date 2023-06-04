@@ -4,11 +4,12 @@ describe("Add task", () => {
   });
 
   it("Should add a task", () => {
-    cy.get("[data-cy='add-task']").type("Do the laundry");
-    cy.get("[data-cy='submit']").click();
-    cy.contains("Do the laundry").should("exist");
+    cy.fixture("taskList").then((taskList) =>{
+      cy.get("[data-cy='add-task']").type(taskList[0].task);
+      cy.get("[data-cy='submit']").click();
+      cy.contains(taskList[0].task).should("exist");
+    })
   });
-
 });
 
 
