@@ -1,4 +1,4 @@
-describe("completed", () => {
+describe("Completed tasks", () => {
   before(() => {
     cy.visit("http://localhost:3000");
   });
