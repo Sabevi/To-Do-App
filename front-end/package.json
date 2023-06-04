@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cypress/github-action": "^5.8.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -46,6 +47,7 @@
     ]
   },
   "devDependencies": {
+    "cypress": "^12.13.0",
     "eslint-plugin-react": "^7.31.11"
   }
 }
