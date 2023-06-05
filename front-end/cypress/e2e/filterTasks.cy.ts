@@ -1,6 +1,6 @@
 describe("Filter items", () => {
   before(() => {
-    cy.visit("http://localhost:3000");
+    cy.visit("/");
   });
 
   it("should show only the completed tasks", () => {

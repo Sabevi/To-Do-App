@@ -1,6 +1,6 @@
 describe("Add task", () => {
   before(() => {
-    cy.visit("http://localhost:3000");
+    cy.visit("/");
 });
 
   it("Should add a task", () => {

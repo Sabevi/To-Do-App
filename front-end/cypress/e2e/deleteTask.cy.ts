@@ -1,6 +1,6 @@
 describe("Delete task", () => {
   before(() => {
-    cy.visit("http://localhost:3000");
+    cy.visit("/");
   });
 
   it("should delete a task", () => {

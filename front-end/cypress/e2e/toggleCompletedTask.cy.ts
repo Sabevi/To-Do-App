@@ -1,6 +1,6 @@
 describe("Completed tasks", () => {
   before(() => {
-    cy.visit("http://localhost:3000");
+    cy.visit("/");
   });
 
   it("should mark an item as completed", () => {
