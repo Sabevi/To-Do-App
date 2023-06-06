@@ -7,9 +7,22 @@ jobs:
    steps:
      - name: Checkout
        uses: actions/checkout@v3
+     - name: Setup Node.js
+       uses: actions/setup-node@v3
+       with:
+        node-version: 18
+     - name: Install dependencies
+       run: npm install
+       working-directory: ./front-end
      - name: Cypress run
        uses: cypress-io/github-action@v5
        with:
         working-directory: ./front-end
+        build: npm run build
         start: npm start
+        wait-on: http://127.0.0.1:3000
+        wait-on-timeout: 180
+        browser: chrome
+
+
       
