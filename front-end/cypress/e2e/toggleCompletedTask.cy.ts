@@ -1,5 +1,5 @@
 describe("Completed tasks", () => {
-  before(() => {
+  beforeEach(() => {
     cy.visit("/");
   });
 
