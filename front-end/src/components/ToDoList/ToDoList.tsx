@@ -37,6 +37,7 @@ export const ToDoList = ({ data, setData, taskList }: ToDoListProps) => {
                   id={`task ${index + 1}`}
                   type="checkbox"
                   onChange={() => toggleCompletedTask(index)}
+                  data-cy="toggle-check"
                 />
                 <label
                   htmlFor={`task ${index + 1}`}
@@ -48,6 +49,7 @@ export const ToDoList = ({ data, setData, taskList }: ToDoListProps) => {
               <button
                 className="button is-rounded is-small action-button"
                 onClick={() => removeTask(index)}
+                data-cy="remove-todo"
               >
                 Delete
               </button>

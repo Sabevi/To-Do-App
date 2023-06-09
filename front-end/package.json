@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@cypress/github-action": "^5.8.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@fortawesome/react-fontawesome": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
@@ -23,8 +24,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "build": "CI=false react-scripts build",
+    "test": "start-server-and-test start http://localhost:3030 cy:run",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -46,6 +47,8 @@
     ]
   },
   "devDependencies": {
-    "eslint-plugin-react": "^7.31.11"
+    "cypress": "^12.13.0",
+    "eslint-plugin-react": "^7.31.11",
+    "start-server-and-test": "^2.0.0"
   }
 }
